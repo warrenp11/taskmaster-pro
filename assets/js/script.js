@@ -114,6 +114,10 @@ $("#trash").droppable({
   }
 });
 
+// change method of picking date
+$("#modalDueDate").datepicker({
+  minDate: 1 
+});
 
 // modal was triggered
 $("#task-form-modal").on("show.bs.modal", function() {
