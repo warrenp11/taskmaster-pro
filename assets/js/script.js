@@ -52,16 +52,16 @@ $(".card .list-group").sortable({
   tolerance: "pointer",
   helper: "clone",
   activate: function(event, ui) {
-    console.log(ui);
+    // console.log(ui);
   },
   deactivate: function(event, ui) {
-    console.log(ui);
+    // console.log(ui);
   },
   over: function(event) {
-    console.log(event);
+    // console.log(event);
   },
   out: function(event) {
-    console.log(event);
+    // console.log(event);
   },
   update: function() {
     var tempArr = [];
@@ -208,6 +208,15 @@ $(".list-group").on("click", "span", function() {
     .addClass("form-control")
     .val(date);
   $(this).replaceWith(dateInput);
+
+  // enable jquery ui datepicker
+  dateInput.datepicker({
+    minDate: 1,
+    onClose: function() {
+      // when calendar is closed, force a "change" event on the "dateInput"
+      $(this).trigger("change");
+    }
+  });
 
   // automatically bring up the calendar
   dateInput.trigger("focus");
